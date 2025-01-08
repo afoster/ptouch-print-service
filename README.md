@@ -7,9 +7,9 @@ Tiny web server to provide an endpoint to print text via a USB-connected Brother
 Ensure the correct USB device is passed to the container using the --device flag. You may need to adjust permissions on your host system to allow container access to the USB device.
 
 ```
-docker run --rm -it \
+docker run --rm --name ptouch-print-service -it \
   --device=/dev/usb/lp0:/dev/usb/lp0 \
-  -p 8080:8080 ptouch-print-service:latest
+  -p 8080:8080 andyatsol1/ptouch-print-service:latest
 ```
 
 ## Example request
@@ -29,6 +29,18 @@ Note there is no authentication required.
 * https://dominic.familie-radermacher.ch/projekte/ptouch-print/
 * https://git.familie-radermacher.ch/linux/ptouch-print.git
 * https://github.com/HenrikBengtsson/brother-ptouch-label-printer-on-linux
+
+## Build Docker image
+
+If you prefer to build the image locally and run it
+
+```
+docker build -t my-ptouch-print-service .
+docker run --rm --name my-ptouch-print-service -it \
+  --device=/dev/usb/lp0:/dev/usb/lp0 \
+  -p 8080:8080 my-ptouch-print-service
+```
+
 
 ## License
 
