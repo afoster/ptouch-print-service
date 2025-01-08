@@ -14,11 +14,21 @@ docker run --rm -it \
 
 ## Example request
 
+Only alphanumeric characters and dashes are permitted values at present.
+
 ```
 curl -X POST http://localhost:8080/print \
      -H "Content-Type: application/json" \
      -d '{"text": "valid-text-123"}'
 ```
+
+Note there is no authentication required.
+
+## Useful links
+
+* https://dominic.familie-radermacher.ch/projekte/ptouch-print/
+* https://git.familie-radermacher.ch/linux/ptouch-print.git
+* https://github.com/HenrikBengtsson/brother-ptouch-label-printer-on-linux
 
 ## License
 
